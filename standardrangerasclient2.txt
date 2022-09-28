@@ -1,6 +1,9 @@
 //#############################
 //Window Switch Keys
 
+// Client2 is the ranger
+// If autofire is on and we switch away, it's turned off until we switch back
+
 
 // Client1
 <Hotkey Numpad1; NumpadEnd>
