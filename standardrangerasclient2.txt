@@ -1,0 +1,83 @@
+//#############################
+//Window Switch Keys
+
+
+// Client1
+<Hotkey Numpad1; NumpadEnd>
+	<If WinExists "Client1">
+		<Cancel>
+		<TargetWin "Client1">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<else>
+	<endif>
+    	<If autofire Is on>
+        	<SetVar autofire off>
+        	<SetVar autofirepause on>
+    <else>
+    <endif>
+
+//Client2
+<Hotkey Numpad2; NumpadDown>
+	<If WinExists "Client2">
+       		<Cancel>
+		<TargetWin "Client2">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<else>
+	<endif>
+	<If autofire Is on>
+        <SetVar autofire on>
+        <SetVar autofirepause off>
+        <DoHotkey Hotkey Numpad8>
+    <else>
+    <endif>
+    <If autofirepause Is on>
+        <SetVar autofire on>
+        <SetVar autofirepause off>
+        <DoHotkey Hotkey Numpad8>
+    <else>
+    <endif>
+
+
+<Hotkey Numpad3; NumpadPgDn>
+	<If WinExists "Client3">
+		<Cancel>
+		<TargetWin "Client3">
+		<SetForegroundWin>
+		<SendFocusWin>
+	<else>
+	<endif>
+	<If autofire Is on>
+        	<SetVar autofire off>
+        	<SetVar autofirepause on>
+   	<else>
+    	<endif>
+
+
+
+// Numpad7 toggles autofire on and off
+<Hotkey Numpad7; NumpadHome>
+    <Toggle>
+        <If ActiveWinIs "Client2">
+            <SetVar autofire on>
+            <DoHotKey Hotkey Numpad8>
+        <else>
+        <endif>
+    <Toggle>
+        <Cancel>
+        <SetVar autofire off>
+
+// Key F11 is ranged attack button in EQ - Client2 is the ranger
+// Numpad8 is the hotkey that the script spams, you don't have to push this yourself
+<Hotkey Numpad8>
+    <If ActiveWinIs "Client2">
+        <SendFocusWin>
+        <Key F11>
+    <else>
+    <endif>
+    <If autofire Is on>
+        <DoHotKey Hotkey Numpad8>
+        <Wait 100>
+    <else>
+    <endif>
